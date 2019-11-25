@@ -1,11 +1,14 @@
-async function fetchMainData() {
-    const res = await fetch("/api/sienet");
-    return res.json();
+export const fetchMainData =()=> {
+    return fetch("/api/sienet")
+    .then(res => res.json())
   };
-  
-  async function fetchScores() {
-    const res = await fetch("/api/scores");
-    return res.json();
-  };
-  
-  export { fetchMainData, fetchScores };
+
+export const createMushroom =(data) => {
+    return fetch("/api/sienet", {
+        method: "POST",
+        headers: {
+        "Accept": "application/json", "Content-type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+}

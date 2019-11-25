@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import ScreenList from './ScreenList.jsx'
-import {fetchMainData} from '../service/FetchClient'
+import {fetchMainData, createMushroom} from '../service/FetchClient'
+import ScreenForm from './ScreenForm'
 
 const ScreenMain = (props) => {
     const [mushrooms, setMushrooms] = useState([]);
 
     const getMushrooms = () => {
         fetchMainData().then(res => setMushrooms(res))
+    }
+
+    const addMushroom = (data) => {
+        createMushroom(data)
+        .then(res => {
+            getMushrooms();
+        })
     }
 
     useEffect(() => {
@@ -16,6 +24,7 @@ const ScreenMain = (props) => {
     return (
         <div>
             <ScreenList mushrooms={mushrooms}/>
+            <ScreenForm addMushroom = {addMushroom}/>
         </div>
     )
 

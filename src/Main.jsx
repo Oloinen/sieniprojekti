@@ -6,20 +6,20 @@ import MobileMain from './mcomponents/MobileMain.jsx'
 const Main = () => {
  
 const isDesktop = useMediaQuery({ minWidth: 800 })
-const isMobile = useMediaQuery({ maxWidth: 799})
+const isMobile = useMediaQuery({ maxWidth: 800})
+
+console.log(isMobile)
 
 
 if (isDesktop) {
-return (
-    <div>
-        <ScreenMain/>
-  </div>
-)
-} else if (isMobile) {
+    return (
+        <div><ScreenMain/> </div>
+)} 
+
+else {
     return (
         <div><MobileMain/></div>
-    )
-}
+    )}
 }
 
 export default Main;
