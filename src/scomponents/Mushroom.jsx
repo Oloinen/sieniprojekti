@@ -1,16 +1,13 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import ScreenModal from './ScreenModal.jsx';
+import useModal from '../hooks/useModal.jsx'
 
-export default function mushroomCard(props) {
+const Mushroom = (props) => {
 
-    const {finnishname, latinname, id} = props.shroom;
-
-    const showDetail = (id) => {
-        props.history.push({
-            pathname:'/show/' + id
-        })
-    }
+    const {finnishname, latinname} = props.shroom;
+    const {isShowing, toggle} = useModal();
 
     return (
     <Card className="card-style">
@@ -21,8 +18,14 @@ export default function mushroomCard(props) {
                     </Card.Text>
             </Card.Body>
         <Card.Footer>
-        <Button type="button" onClick={() => {showDetail(id)}}>Detaljit</Button>
+        <button className="button-default" onClick={toggle}>Show Modal</button>
+        <ScreenModal
+        isShowing={isShowing}
+        hide={toggle}/>
         </Card.Footer>
+        
     </Card>
     )
 }
+
+export default Mushroom;

@@ -23,7 +23,8 @@ const ScreenMain = (props) => {
 
     return (
         <div>
-            <ScreenList mushrooms={mushrooms}/>
+            <ScreenList 
+                mushrooms={mushrooms}/>
             <ScreenForm addMushroom = {addMushroom}/>
         </div>
     )

@@ -1,7 +1,8 @@
 import React from 'react'
-import Mushroom from './Mushroom.jsx'
+import Mushroom from './Mushroom'
 
-const mushroomList =({mushrooms}) => {
+const ScreenList =({mushrooms}) => {
+
 
     let mushroomRow = mushrooms.map((shroom) => {
         return (<Mushroom shroom = {shroom} key = {shroom.id}
@@ -15,4 +16,4 @@ const mushroomList =({mushrooms}) => {
     )
 }
 
-export default mushroomList;
+export default ScreenList;
