@@ -1,3 +1,9 @@
+This is a practice app for using React and different features associated with it such as hooks. The plan is to make the project suitable for desktop and mobile. The purpose of the app is to be able to collect and save information about mushrooms one encounters in the forest so as to be better able to recognize new mushrooms. The database used is Postgres and the plan is to add a feature to upload pictures and store them on the server as pics are very important when one is researching mushrooms.
+
+I like mushrooms.
+
+--------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
