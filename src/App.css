@@ -1,5 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+
 .App {
   text-align: center;
+}
+
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	-moz-font-smoothing:antialiased;
+	-o-font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+
+body {
+	font-family:"Open Sans", Helvetica, Arial, sans-serif;
+	font-weight:300;
+	font-size: 12px;
+	line-height:30px;
+	background-repeat: no-repeat;
+	background-size: 1550px 780px;
 }
 
 
@@ -63,4 +86,8 @@ button {
 .button-default {
   background: #247BA0;
   color: #fff;
+}
+
+.error {
+  border: 2px solid #FF6565;
 }

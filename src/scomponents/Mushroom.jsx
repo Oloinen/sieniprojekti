@@ -1,6 +1,5 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import '../styles/Mushroom.css'
 import ScreenModal from './ScreenModal.jsx';
 import useModal from '../hooks/useModal.jsx'
 
@@ -10,21 +9,21 @@ const Mushroom = (props) => {
     const {isShowing, toggle} = useModal();
 
     return (
-    <Card className="card-style">
-            <Card.Body>
-                <Card.Title>{finnishname}</Card.Title>
-                    <Card.Text>
+    <div className="card" onClick={toggle}>
+            <div className="cardText">
+                <div>{finnishname}</div>
+                    <div>
                     {latinname}
-                    </Card.Text>
-            </Card.Body>
-        <Card.Footer>
-        <button className="button-default" onClick={toggle}>Show Modal</button>
+                    </div>
+            </div>
+        <div>
+        <button className="button-default">Show Modal</button>
         <ScreenModal
         isShowing={isShowing}
         hide={toggle}/>
-        </Card.Footer>
+        </div>
         
-    </Card>
+    </div>
     )
 }
 

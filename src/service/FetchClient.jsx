@@ -12,3 +12,24 @@ export const createMushroom =(data) => {
         body: JSON.stringify(data)
     })
 }
+
+export const updateMushroom =(data, id) => {
+    return fetch("/api/sienet/"+id, {
+        method: "PUT",
+        headers: {
+        "Accept": "application/json", "Content-type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+}
+
+export const deleteMushroom = (id) => {
+    return fetch("/api/sienet/"+id, {
+        method: 'DELETE'
+    })
+}
+
+export const showMushroom = (id) => {
+    return fetch ("/api/sienet/"+id)
+    .then(res => res.json())
+}

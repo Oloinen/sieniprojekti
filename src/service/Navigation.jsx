@@ -1,20 +1,14 @@
 import React from 'react'
-import { Nav } from "react-bootstrap";
+import { Link } from 'react-router-dom'
 
 const Navigation = () => {
         return (
-            <Nav variant="pills" className="justify-content-center" 
-        activeKey="/">
-          <Nav.Item>
-            <Nav.Link href="/">Koti</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/mushrooms">Sienet</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/create">Uusi sieni</Nav.Link>
-          </Nav.Item>
-        </Nav>
+          <div>
+                <Link to="/" className="button">Home</Link>
+                <Link to="/mushrooms" className="button">Sienet!</Link>
+                <Link to="/create" className="button">Lomake</Link>
+                <hr/>
+            </div>
         )
     }
 
