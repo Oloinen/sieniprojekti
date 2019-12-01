@@ -3,24 +3,26 @@ import '../styles/Mushroom.css'
 import ScreenModal from './ScreenModal.jsx';
 import useModal from '../hooks/useModal.jsx'
 
-const Mushroom = (props) => {
+const Mushroom = ({shroom, updateMushroom}) => {
 
-    const {finnishname, latinname} = props.shroom;
+    const {finnishname, latinname, id} = shroom;
     const {isShowing, toggle} = useModal();
 
     return (
-    <div className="card" onClick={toggle}>
+    <div className="card">
             <div className="cardText">
                 <div>{finnishname}</div>
                     <div>
-                    {latinname}
+                    {latinname} ja {id}
                     </div>
             </div>
         <div>
-        <button className="button-default">Show Modal</button>
+        <button onClick={toggle} className="button-default">Show Modal</button>
         <ScreenModal
         isShowing={isShowing}
-        hide={toggle}/>
+        hide={toggle}
+        shroom={shroom}
+        updateMushroom={updateMushroom}/>
         </div>
         
     </div>

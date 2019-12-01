@@ -4,7 +4,10 @@ import '../styles/Form.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import StarsInput from './inputs/StarsInput'
 
-const ScreenForm = ({addMushroom}) => {
+const ScreenForm = ({updateMushroom, shroom}) => {
+
+    const id = parseInt(shroom.id);
+    console.log(id)
 
     const [stars, setStars] = useState(0);
 
@@ -30,14 +33,14 @@ const ScreenForm = ({addMushroom}) => {
 
     return (
             <Formik
-              initialValues={{ finnishname: "", latinname: "", grouping: "", edible: false, stars, foundtime: "", location: "10-10-2000", environment: "", description: ""}}
+              initialValues={{ finnishname: shroom.finnishname, latinname: "", grouping: "", edible: false, stars, foundtime: "2000-12-12", location: "", environment: "", description: ""}}
               validationSchema={MushroomSchema}
               onSubmit={(values, {setSubmitting, resetForm}) => {
                   setStars();
                   setSubmitting(true);
                   setTimeout(() => {
                     console.log(values)
-                    addMushroom(values);
+                    updateMushroom(id, values);
                   resetForm();
                   setSubmitting(false);
               }, 500)
@@ -122,7 +125,7 @@ const ScreenForm = ({addMushroom}) => {
                       className={touched.foundtime && errors.foundtime ? "error" : null}
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.foundtime || ''}
+                      value={values.foundtime || "2000-12-12"}
                     />
                     <ErrorMessage
                       component="div"

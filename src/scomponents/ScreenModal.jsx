@@ -1,47 +1,53 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, {useState} from "react";
+import ReactDOM from "react-dom";
+import ScreenEdit from './ScreenEdit'
 
 
-const ScreenModal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
-  <React.Fragment>
-    <div className="modal-overlay"/>
-    <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
-      <div className="modal">
-        <div className="modal-header">
-          <button type="button" className="modal-close-button" data-dismiss="modal" aria-label="Close" onClick={hide}>
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <p>
-          Hello, I'm a modal.
-        </p>
+function ScreenModal({isShowing, shroom, hide, updateMushroom}) {
+  const [edit, setEdit] = useState(true);
+
+  const handleEdit = () => {
+    setEdit(!edit)
+    return edit;
+  }
+
+  console.log("edit" + edit)
+  console.log("isshowing" + isShowing);
+
+  const {id, finnishname, latinname, grouping, stars, edible, location, foundtime, description, environment } = shroom;
+
+  let modal; 
+
+  if(!edit) {
+    modal = (<>
+      <div className={isShowing ? "overlay" : "hide"} onClick={hide}/>
+      <div className={isShowing ? "modal-wrapper": "hide" } aria-modal aria-hidden tabIndex={-1} role="dialog">
+        <div className={isShowing ? "modal" : "hide"}>
+        <button onClick={hide} >X</button>
+        <ScreenEdit shroom={shroom} updateMushroom={updateMushroom}/>
+        <button onClick={handleEdit}>Edit</button>
       </div>
-    </div>
-  </React.Fragment>, document.body
-) : null;
+      </div>
+      </>)
+  } else {
+    modal =  (<>
+      <div className={isShowing ? "overlay" : "hide"} onClick={hide}/>
+      <div className={isShowing ? "modal-wrapper": "hide" } aria-modal aria-hidden tabIndex={-1} role="dialog">
+        <div className={isShowing ? "modal" : "hide"}>
+        <button onClick={hide}>X</button>
+        <h1>{finnishname}</h1>
+        <p>{latinname}</p>
+        <p>{foundtime}</p>
+        <button onClick={handleEdit}>Edit</button>
+      </div>
+      </div>
+      </>)
+  }
+
+  return (ReactDOM.createPortal(
+    modal,document.getElementById("modal-root")
+     )
+    )
+}
 
 export default ScreenModal;
-
-/*const ScreenModal=(props) => {
-    const {show, closeModal, shroom} = props;
-
-    const modal = (<>
-    <div className={show ? "overlay" : "hide"} onClick={closeModal}/>
-    <div className={show ? "modal" : "hide"}>
-          <button type="button" className="modal-close-button" onClick={closeModal}>
-            <span>&times;</span>
-          </button>
-        <p>
-          Hello, I'm a modal!
-          {shroom}
-        </p>
-      </div>
-    </>)
-
-    return ReactDOM.createPortal(
-        modal, document.getElementById("modal-root")
-    )
- }
-
-
-export default ScreenModal;*/

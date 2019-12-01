@@ -1,6 +1,6 @@
 .card {
 	width: 200px;
-	min-height: 45px;
+	min-height: 55px;
 	background: rgb(238, 17, 146);
 	box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
 	border-radius: 6px;
@@ -10,3 +10,118 @@
 .card-text {
 	height: 35px;
 }
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1040;
+	width: 100vw;
+	height: 100vh;
+	background-color: #000;
+	opacity: .5;
+  }
+  
+  .modal-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1050;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	outline: 0;
+  }
+  .modal {
+	width: 500px;
+	position: relative;
+	margin: 0px auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 2px;
+	transform: translateY(100%);
+	transition: transform 0.2s ease;
+	box-shadow: 0 2px 8px 3px;
+	font-family: Helvetica, Arial, sans-serif;
+  }
+  
+  .modal-header {
+	display: flex;
+	justify-content: flex-end;
+  }
+  
+  .modal-close-button {
+	font-size: 1.4rem;
+	font-weight: 700;
+	line-height: 1;
+	color: #000;
+	opacity: .3;
+	cursor: pointer;
+	border: none;
+  }
+
+button {
+	font-size: .9rem;
+	font-weight: 700;
+	border: none;
+	border-radius: 3px;
+	padding: .3rem 1rem;
+	margin-left: .5rem;
+  }
+  
+  .button-default {
+	background: #247BA0;
+	color: #fff;
+  }
+
+  .show {
+	display: block;
+  }
+  
+  .hide {
+	display: none;
+  }
+
+  
+.modal-transition-enter .overlay {
+	opacity: 0;
+  }
+  
+  .modal-transition-enter-active .overlay {
+	opacity: 1;
+	transition: opacity 120ms;
+  }
+  
+  .modal-transition-exit-active .overlay {
+	opacity: 1;
+  }
+  
+  .modal-transition-exit-active .overlay {
+	opacity: 0;
+	transition: opacity 120ms;
+  }
+  
+  /* Modal Transitions */
+  
+  .modal-transition-enter .modal {
+	opacity: 0;
+	transform: scale(0.95) translateY(-30px);
+  }
+  
+  .modal-transition-enter-active .modal {
+	opacity: 1;
+	transform: translateX(0) translateY(0);
+	transition: opacity 120ms, transform 120ms;
+  }
+  
+  .modal-transition-exit .modal {
+	opacity: 1;
+  }
+  
+  .modal-transition-exit-active .modal {
+	opacity: 0;
+	transform: scale(0.95) translateY(-30px);
+	transition: opacity 200ms, transform 200ms;
+  }
+  

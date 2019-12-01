@@ -13,7 +13,7 @@ export const createMushroom =(data) => {
     })
 }
 
-export const updateMushroom =(data, id) => {
+export const putMushroom =(id, data) => {
     return fetch("/api/sienet/"+id, {
         method: "PUT",
         headers: {
