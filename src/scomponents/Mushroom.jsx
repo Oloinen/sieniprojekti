@@ -24,7 +24,6 @@ const Mushroom = ({shroom, updateMushroom}) => {
         shroom={shroom}
         updateMushroom={updateMushroom}/>
         </div>
-        
     </div>
     )
 }
